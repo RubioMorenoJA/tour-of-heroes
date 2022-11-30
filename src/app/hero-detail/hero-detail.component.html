@@ -1,0 +1,14 @@
+<div *ngIf="hero; else elseBlock">
+    <h4>{{ hero.name | uppercase }} Details</h4> 
+    <div>id: {{ hero.id }}</div>
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+</div>
+<ng-template #elseBlock>
+    <h4>No Hero</h4>
+    <p>No Hero with {{ activatedRoute.snapshot.paramMap.get('id') }} id</p>
+</ng-template>
+
+<button type="button" (click)="onGoBackClick()">Back</button>
